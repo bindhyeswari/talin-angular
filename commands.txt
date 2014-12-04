@@ -1,0 +1,5 @@
+
+  501  bower init
+  502  clear
+  503  bower install angular --save
+  504  history > commands.txt
