@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="base.css"/>
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+
+        angular.module('myApp', []).directive('persistent', function () {
+            return { // DDO - Directive Definition Object
+                restrict: 'A', // apply the directive as an attribute on an HTML element
+                link: {
+                    pre: function (scope, element, attrs) {
+                        // pick any data if present in localStorage and put it on the element
+                        var dom_element = element[0];
+                        var val = localStorage.getItem(attrs.name);
+                        if (val !== null) dom_element.value = val;
+                    },
+                    post: function (scope, element, attrs) {
+                        // element[0] is the DOM Element
+                        var dom_element = element[0];
+                        dom_element.addEventListener('change', function () {
+                            console.log(this);
+                            localStorage.setItem(attrs.name, this.value);
+                            console.log(window)
+                        });
+                    }
+                }
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <input type="text" name="username" placeholder="username" persistent/>
+    <input type="text" name="email" placeholder="email" persistent/>
+    <input type="text" name="telephone" placeholder="telephone" persistent/>
+</body>
+</html>

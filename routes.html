@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="base.css"/>
+    <script src="models/countries.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script>
+        angular.module('myApp', ['ngRoute']).config(function ($routeProvider) {
+            $routeProvider.when('/', {
+                templateUrl: 'views/list_countries.html',
+                controller: 'ListController'
+            }).when('/details/:country_code', {
+                templateUrl: 'views/details_country.html',
+                controller: 'DetailsController'
+            }).otherwise({
+                redirectTo: '/'
+            })
+        }).controller('ListController', function ($scope) {
+            $scope.countries = countries;
+        }).controller('DetailsController', function ($scope, $routeParams) {
+            $scope.country = hashmap[$routeParams.country_code];
+        });
+    </script>
+</head>
+<body>
+    View here:
+    <a href="#/">List all Countries</a>
+    <div ng-view>
+
+    </div>
+</body>
+</html>

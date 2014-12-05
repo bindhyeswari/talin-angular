@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="models/countries.js"></script>
+    <script>
+        // console.log(comprehensive);
+        var hashmap = {};
+        for (var i = 0, len = comprehensive.length; i < len; i++) {
+            var country = comprehensive[i];
+            hashmap[country.alpha3Code] = country;
+        }
+        console.log(hashmap);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+body {
+    font: 200 1em 'Helvetica Neue', 'Segoe UI', 'Droid Sans', 'Helvetica';
+    padding: 3em;
+    margin: 0;
+}
+
+input, select, textarea {
+    font: 200 1em 'Helvetica Neue', 'Segoe UI', 'Droid Sans', 'Helvetica';
+    outline: none;
+    border: 1px solid #eee;
+    padding: 0.35em 0.5em;
+    background-color: transparent;
+}
+
+div[ng-view] {
+    padding: 1em;
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: 0 0 15px 5px gray;
+}
+
+ul {
+    list-style-type: none;
+}
+
+div[ng-view] a {
+    padding: 0.5em;
+    border: 1px solid #efefef;
+    display: inline-block;
+    margin: 0.25em;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+div[ng-view] a:hover {
+    background-color: #efefef;
+    transition: all 500ms ease;
+}
+
+div.country_prop > span {
+    font-size: 0.85em;
+    display: inline-block;
+    color: #aaa;
+}
+
+div.country_prop {
+    padding: 0.5em 0.75em;
+}
+
+div.country_prop > span:nth-child(2) {
+    font-size: 1em;
+    font-weight: 300;
+    color: #222
+}
+
